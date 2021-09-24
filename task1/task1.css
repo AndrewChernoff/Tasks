@@ -1,7 +1,7 @@
 body {
   color: blue;
 }
-#myBox div#box #myBox {
+#myBox (color:red !important;) div#box #myBox {
   color: green;
 }
 .myBox {

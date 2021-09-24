@@ -23,18 +23,26 @@
             { id: 10, type: 'apple', price: 80 },
         ];
 
-        const goodsWithoutMango = goods.filter(g=> g.type!== 'mango')
-        goodsWithoutMango.map(item => {
-            if (item.type === 'apple') {
-                item.price = item.price * 3;
-            }
-            return item;
-        })
-        console.log(goodsWithoutMango) 
+/* 1 способ */  const updatedArray = goods.map(g => g.type === "apple"
+            ? { ...g, price: g.price * 3 }
+            : g)
+            .filter(g => g.type !== "mango")
+        console.log(updatedArray)
 
-       
+
+/* 2 способ */  for (i = 0; i < goods.length; i++) {
+            if (goods[i].type === 'mango') {
+                goods.splice(i, 1);
+                i--
+            } else if (goods[i].type === 'apple') {
+                goods[i].price *= 3;
+            }
+        }
+        console.log(goods)
+
 
     </script>
+
 </body>
 
 </html>
